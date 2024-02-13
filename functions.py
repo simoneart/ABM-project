@@ -157,21 +157,24 @@ def time_evo(graph, Nsteps, inf_rate, healing_rate):
     ro_rec = np.zeros(Nsteps+1)
     
     #day = 0
-    ro_sus[0] = sum([1 for i in range(Ntot) if  evo_graph.vs[i]['state'] == 0])/Ntot
-    ro_inf[0] = (Ntot-ro_sus[0]*Ntot)/Ntot
+    ro_sus[0] = sum([1 for i in range(Ntot) if  evo_graph.vs[i]['state'] == 0])/float(Ntot)
+    ro_inf[0] = 1. - ro_sus[0]
     ro_rec[0] = 0
     
     neighborhoods = evo_graph.get_adjlist()
     
-    for t in range(1,Nsteps+1): 
+    for t in range(1,Nsteps+1):
+        
         for i in range(Ntot):
+            
             #updating the recovered
             if evo_graph.vs[i]['state'] == 1 and rnd.random() <= healing_rate:
                 evo_graph.vs[i]['state'] = 2
+                
             for neis in neighborhoods[i]:
                 #updating the infected 
                 if evo_graph.vs[i]['state'] == 0 and neis == 1 and rnd.random() <= inf_rate:
-                    evo_graph.vs[i]['state'] = 1
+                    evo_graph.vs[i]['state'] = 1                    
 
         ro_sus[t] = sum([1 for i in range(Ntot) if  evo_graph.vs[i]['state'] == 0])/Ntot
         ro_inf[t] = sum([1 for i in range(Ntot) if  evo_graph.vs[i]['state'] == 1])/Ntot
@@ -216,6 +219,10 @@ def ensemble_stats(graph_topology, graph_parameters, Ntot, Nreal, Nsteps, inf_ra
         
     elif graph_topology == 'Barabasi-Albert':
         G = scale_free_network(Ntot, graph_parameters[0], graph_parameters[1])
+        
+    #relevant structural properties of the graph
+    pk = G.degree()
+    ave_path_length = G.average_path_length()
     
     #define the ensembles of the densities, first index is the realization index,
     #second index is the time index.
@@ -251,4 +258,4 @@ def ensemble_stats(graph_topology, graph_parameters, Ntot, Nreal, Nsteps, inf_ra
         roI_var[i] = sum([(roI_ens[j,i]-roI_ave[i])**2 for j in range(Nreal)])/(Nreal-1)
         roR_var[i] = sum([(roR_ens[j,i]-roR_ave[i])**2 for j in range(Nreal)])/(Nreal-1)
     
-    return [[roS_ave, roI_ave, roR_ave], [roS_var, roI_var, roR_var]]
+    return [[roS_ave, roI_ave, roR_ave], [roS_var, roI_var, roR_var], [pk, ave_path_length]]
