@@ -165,7 +165,10 @@ def time_evo(graph, Nsteps, inf_rate, healing_rate):
     
     for t in range(1,Nsteps+1):
         
-        for i in range(Ntot):
+        #shuffling of the order in which the functions updates the states of the vertices
+        vs_indices = np.random.permutation(np.array([i for i in range(Ntot)]))
+        
+        for i in vs_indices:
             
             #updating the recovered
             if evo_graph.vs[i]['state'] == 1 and rnd.random() <= healing_rate:
@@ -173,7 +176,7 @@ def time_evo(graph, Nsteps, inf_rate, healing_rate):
                 
             for neis in neighborhoods[i]:
                 #updating the infected 
-                if evo_graph.vs[i]['state'] == 0 and neis == 1 and rnd.random() <= inf_rate:
+                if evo_graph.vs[i]['state'] == 0 and evo_graph.vs[neis]['state'] == 1 and rnd.random() <= inf_rate:
                     evo_graph.vs[i]['state'] = 1                    
 
         ro_sus[t] = sum([1 for i in range(Ntot) if  evo_graph.vs[i]['state'] == 0])/Ntot
