@@ -1,47 +1,25 @@
 import numpy as np
+import random as rnd
 import matplotlib.pyplot as plt
-from functions import *
+from nwSIR_functions import *
 import igraph as ig
+import time
 from tabulate import tabulate 
+start_time = time.time()
 
 #infection and healing rate
-alfa, beta = 0.8, 0.1 
+alfa, beta = 0.2, 0.1 
 
 #total population, number of initial infected agents, number of steps of the time evolution
 Ntot, Nsteps = 400, 40
-NI = int(Ntot/5)
+NI = int(Ntot/100)
 
 #number of realizations of the evolution
 Nreal = 10 
 
-#topology of the network
-top = 'Barabasi-Albert'
-
-edges = int(Ntot/5)
-
-stuff = ensemble_stats(top, [NI, edges], Ntot, Nreal, Nsteps, alfa, beta)
-roS_ave, roI_ave, roR_ave = stuff[0][0], stuff[0][1], stuff[0][2]
-roS_dev, roI_dev, roR_dev = np.sqrt(stuff[1][0]), np.sqrt(stuff[1][1]), np.sqrt(stuff[1][2])
-deg_dist, ave_path_length = stuff[2][0], stuff[2][1]
-
-days = [n for n in range(Nsteps+1)]
-
-plt.figure(1, (16,9))
-plt.errorbar(days, roS_ave, yerr=roS_dev, label = r'$\rho_{S}$')
-plt.errorbar(days, roI_ave, yerr=roI_dev, label = r'$\rho_{I}$')
-plt.errorbar(days, roR_ave, yerr=roR_dev, label = r'$\rho_{R}$')
-plt.grid()
-plt.title('Barabasi-Albert')
-plt.xlabel('Days')
-plt.legend()
-
-
-plt.figure(2)
-plt.hist(deg_dist, bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
-plt.title('Degree Distribution Histogram - %s' % top)
-plt.xlabel('k')
-plt.ylabel(r'$P(k)$')
-plt.grid(True)
+#--------------------------topology of the network--------------------------------
+top = 'Barabasi-Albert' #'Lattice', 'Erdos-Renyi', 'Watts-Strogatz', 'Barabasi-Albert'
+#---------------------------------------------------------------------------------
 
 print('-----%s case study: parameters-----' %top)
 
@@ -54,11 +32,130 @@ head1 = ['# agents', '# initial infected', 'infection rate', 'healing rate']
 
 print(tabulate(table1, headers=head1, tablefmt="grid"))
 
-#graph specific table
-table2 = [
-    ['%i'%edges, '%1.3f' % ave_path_length]
-    ]
+if top == 'Erdos-Renyi':
+    k_values = [5,10,15,50]
+    
+elif top == 'Watts-Strogatz':
+   k_values = [1,2,5,10]
 
-head2 = ['# added edges', 'average path length']
+elif top == 'Barabasi-Albert':
+    k_values = [1,4,10,20]
 
-print(tabulate(table2, headers=head2, tablefmt="grid"))
+elif top == 'Lattice':
+    k_values = [0] #dummy
+    
+c = 0
+
+roS_ave, roI_ave, roR_ave = np.zeros((len(k_values),Nsteps+1)), np.zeros((len(k_values),Nsteps+1)), np.zeros((len(k_values),Nsteps+1))
+roS_dev, roI_dev, roR_dev = np.zeros((len(k_values),Nsteps+1)), np.zeros((len(k_values),Nsteps+1)), np.zeros((len(k_values),Nsteps+1))
+deg_dist, ave_path_length = np.zeros((len(k_values),Ntot)), np.zeros(len(k_values))
+
+for k in k_values:
+    
+    if top == 'Erdos-Renyi':
+        p = 0.001 
+        edges = k*p #probability of forming an edge
+        
+    elif top == 'Watts-Strogatz':
+        p = 0.4 #rewiring probability
+        edges = k*int(Ntot/200) #NN on each side
+    
+    elif top == 'Barabasi-Albert':
+        p = 0 #dummy
+        edges = k*int(Ntot/200) #number of edges added to each new node
+        
+    elif top == 'Lattice':
+        p = 0 #dummy
+        edges = 0 #dummy
+    
+    stuff = ensemble_stats(top, [NI, edges, p], Ntot, Nreal, Nsteps, alfa, beta)
+    roS_ave[c], roI_ave[c], roR_ave[c] = stuff[0][0], stuff[0][1], stuff[0][2]
+    roS_dev[c], roI_dev[c], roR_dev[c] = np.sqrt(stuff[1][0]), np.sqrt(stuff[1][1]), np.sqrt(stuff[1][2])
+    deg_dist[c], ave_path_length[c] = stuff[2][0], stuff[2][1]
+    
+    c += 1
+
+
+
+days = [n for n in range(Nsteps+1)]
+
+if top == 'Lattice':
+    plt.figure(1, (16,9))
+    plt.errorbar(days, roS_ave[0], yerr=roS_dev[0], label = r'$\rho_{S}$')
+    plt.errorbar(days, roI_ave[0], yerr=roI_dev[0], label = r'$\rho_{I}$')
+    plt.errorbar(days, roR_ave[0], yerr=roR_dev[0], label = r'$\rho_{R}$')
+    plt.grid()
+    plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[0] )
+    plt.xlabel('Days')
+    plt.legend()
+    plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
+    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops_L.pdf', format='pdf')
+    
+    plt.figure(2)
+    plt.hist(deg_dist[0], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
+    plt.title('Degree Distribution Histogram - %s' % top)
+    plt.xlabel('k')
+    plt.ylabel(r'$P(k)$')
+    plt.grid(True)
+    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\deg_dist_L', format='pdf')
+
+else:
+    plt.figure(1, (16,9))
+    plt.subplot(121)
+    plt.errorbar(days, roS_ave[0], yerr=roS_dev[0], label = r'$\rho_{S}$')
+    plt.errorbar(days, roI_ave[0], yerr=roI_dev[0], label = r'$\rho_{I}$')
+    plt.errorbar(days, roR_ave[0], yerr=roR_dev[0], label = r'$\rho_{R}$')
+    plt.grid()
+    plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[0] )
+    plt.xlabel('Days')
+    plt.legend()
+    plt.subplot(122)
+    plt.errorbar(days, roS_ave[1], yerr=roS_dev[1], label = r'$\rho_{S}$')
+    plt.errorbar(days, roI_ave[1], yerr=roI_dev[1], label = r'$\rho_{I}$')
+    plt.errorbar(days, roR_ave[1], yerr=roR_dev[1], label = r'$\rho_{R}$')
+    plt.grid()
+    plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[1] )
+    plt.xlabel('Days')
+    plt.legend()
+    plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
+    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops1_BA.pdf', format='pdf')
+    
+    plt.figure(2, (16,9))
+    plt.subplot(121)
+    plt.errorbar(days, roS_ave[2], yerr=roS_dev[2], label = r'$\rho_{S}$')
+    plt.errorbar(days, roI_ave[2], yerr=roI_dev[2], label = r'$\rho_{I}$')
+    plt.errorbar(days, roR_ave[2], yerr=roR_dev[2], label = r'$\rho_{R}$')
+    plt.grid()
+    plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[2] )
+    plt.xlabel('Days')
+    plt.legend()
+    plt.subplot(122)
+    plt.errorbar(days, roS_ave[3], yerr=roS_dev[3], label = r'$\rho_{S}$')
+    plt.errorbar(days, roI_ave[3], yerr=roI_dev[3], label = r'$\rho_{I}$')
+    plt.errorbar(days, roR_ave[3], yerr=roR_dev[3], label = r'$\rho_{R}$')
+    plt.grid()
+    plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[3] )
+    plt.xlabel('Days')
+    plt.legend()
+    plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
+    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops2_BA.pdf', format='pdf')
+    
+    fig, axs = plt.subplots(2, 2)
+    fig.suptitle('Degree distributions of the graphs - %s networks' %top)
+    axs[0, 0].hist(deg_dist[0], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
+    axs[0, 0].set_title('Graph 1')
+    axs[0, 1].hist(deg_dist[1], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
+    axs[0, 1].set_title('Graph 2')
+    axs[1, 0].hist(deg_dist[2], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
+    axs[1, 0].set_title('Graph 3')
+    axs[1, 1].hist(deg_dist[3], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
+    axs[1, 1].set_title('Graph 4')
+    
+    for ax in axs.flat:
+        ax.set(xlabel=r'$k$', ylabel=r'$P(k)$')
+    
+    # Hide x labels and tick labels for top plots and y ticks for right plots.
+    for ax in axs.flat:
+        ax.label_outer()
+
+print("--- %s seconds ---" % (time.time() - start_time))
