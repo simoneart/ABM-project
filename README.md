@@ -20,7 +20,7 @@ Even though this model is able to capture some key features of certain epidemics
 ### Network classes and their properties
 In this section I just want to give a quick overview of the topologies I am going to study with some few key features. <br>
 
--**Square lattice**: The simplest kind of regular, deterministic graph. In 2-dimensions each node has exactly 4 neighbours.
+-**Square lattice**: The simplest kind of regular, deterministic graph. In 2-dimensions each node has exactly 4 neighbors.
 
 -**Erdos-Renyi**: A very simple regular random network, where the edges between the N nodes have the same probability of existing. The average degree $<k>$ represents well the number of neighbors of the nodes.
 
