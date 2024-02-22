@@ -24,6 +24,6 @@ I use **Python** to run the simulations and specifically the **igraph** package 
 
 ## Results 
 
-<img src="[https://your-image-url.type](https://github.com/simoneart/ABM-project/assets/95907355/fd7d75c8-7bc2-4786-aa43-3852b651420d)https://github.com/simoneart/ABM-project/assets/95907355/fd7d75c8-7bc2-4786-aa43-3852b651420d" width="500" height="250">
+<img src="[https://your-image-url.type](https://github.com/simoneart/ABM-project/assets/95907355/fd7d75c8-7bc2-4786-aa43-3852b651420d)https://github.com/simoneart/ABM-project/assets/95907355/fd7d75c8-7bc2-4786-aa43-3852b651420d.png" width="500" height="250">
 
 
