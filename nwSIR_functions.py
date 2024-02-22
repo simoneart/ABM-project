@@ -8,6 +8,44 @@ I = 1
 R = 2
 '''
 
+def SIR_PDE(N, I0, b, g, dt, Num_steps):
+    '''
+    
+
+    Parameters
+    ----------
+    N: Total number of agents
+    I0 : Initial number of infected
+    b : Infection rate times the average number of contacts at each time of the agents
+    g : healing rate
+    dt : time step
+    Num_steps : number of time steps
+
+    Returns
+    -------
+    Populations of the agents in each compartment over time.
+
+    '''
+    
+    S = np.zeros(Num_steps)
+    I = np.zeros(Num_steps)
+    R = np.zeros(Num_steps)
+    
+    I[0] = I0
+    S[0] = N - I0
+    R[0] = 0    
+    
+    #finite difference method 
+    for t in range(0,Num_steps-1):
+        S[t+1] = S[t] - b*I[t]*S[t]/N * dt
+        I[t+1] = I[t] + (b*I[t]*S[t]/N - g*I[t]) * dt
+        R[t+1] = R[t] + g*I[t] * dt
+    
+    t_axis = [dt*t for t in range(0, Num_steps)]
+    
+    
+    return [S, I, R, t_axis]
+
 def lattice(Ntot, NI):
     '''
     
