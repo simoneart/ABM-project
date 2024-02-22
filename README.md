@@ -17,7 +17,7 @@ $$ \frac{dR}{dt} = \gamma I $$  <br>
 where $N$ is the total number of agents, $\beta$ is the infenction rate times the number of average contacts per unit time and $\gamma$ is the healing rate. The key assumption here is that the population mixes at random, which means that the probability of each individual of coming into contact with any other agent is uniform.  <br>
 Even though this model is able to capture some key features of certain epidemics, it is apparent that its simplicity fails to capture the complexity of a real situation, mainly under two points of view: the first one is related to the actual mechanism of infection and contagion spreading, while the second one is related to the structure of social relations and interactions, which are overlooked by the random mixing hypothesis. On one hand, the model can be made more sophisticated by taking into account a greater number of compartments, e.g. introducing a period of incubation, letting a fraction of the removed to become subsceptible again after a transient of time and so on and so forth. On the other hand, it is possible to implement these kinds of dynamics on complex networks, discarding the differential equations approach. In this project I focus on the latter strategy. <br>
 
-### Network classes and theri properties
+### Network classes and their properties
 In this section I just want to give a quick overview of the topologies I am going to study with some few key features. <br>
 
 -**Square lattice**: The simplest kind of regular, deterministic graph. In 2-dimensions each node has exactly 4 neighbours.
