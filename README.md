@@ -5,11 +5,11 @@ The goal of the project is to compare the epidemic spreading on different networ
 ### Short introduction
 Epidemic models have their origin in the compartimental model SIR developed in the early 20th century. In this simple model the population is divided in three different groups: the Susceptibles (S), who are the agents that can be infected, the Infected (I), who are the agents that can in some way spread the disease and the Removed (R), which are those who either have recovered from the disease and cannot be infected anymore or are deceased. <br> How these agents change their state, i.e. move between compartments, is assumed to be governed by the following set of differential equations:
 
-$$ \frac{dS}{dt} = -\beta SI/N $$
+$$ \frac{dS}{dt} = -\beta SI/N \\$$
 
-$$ \frac{dI{dt} = \beta SI/N -\gamma I$$
+ \frac{dI{dt} = \beta SI/N -\gamma I \\$$
 
-$$ \frac{dR}{dt} = \gamma I $$
+$$ \frac{dR}{dt} = \gamma I 
 
 where $N$ is the total number of agents, $\beta$ is the infenction rate times the number of average contact each person has at any given time and $\gamma$ is the healing rate. <br> 
 
