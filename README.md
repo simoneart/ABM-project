@@ -1,4 +1,5 @@
 Exam project for the PhD course 'Agent-Based models'. Implementation of the SIR epidemic model on networks. <br>
-The goal of the project is to compare the epidemic spreading on different network topologies and to study the trend of the S, I and R populations varying the parameters of the graph itself. 
-A square lattice, a Erdos-Renyi, a Watts-Strogatz and a Barabasi-Albert networks are considered. <br>
-W.I.P.
+The goal of the project is to compare the epidemic spreading on different network topologies and to study the dependence of the populations (i.e. the densities of the S, I and R agents) on the choice of parameters. <br> 
+Square lattice, Erdos-Renyi, Watts-Strogatz and Barabasi-Albert networks are considered. They are generated through a series of functions in nwSIR_functions.py in such a way that each node correspond to a certain agent (S=0, I=1, R=2) and they are initialized with a given number of initial infected positioned at random in the graph. Given a certain graph realization, its epidemic dynamics is repeated a number of times to study the statistics of the spreading and finally graphs containing the populations trend and the degree distribution are produced for different choices of the parameters. <br>
+
+![pops_L](https://github.com/simoneart/ABM-project/assets/95907355/145de154-9b29-406a-b26a-e15e4b04a072)
