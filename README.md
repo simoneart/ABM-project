@@ -7,7 +7,7 @@ Epidemic models have their origin in the compartimental model SIR developed in t
 
 $$ \frac{dS}{dt} = -\beta SI/N $$  <br> 
 
-$$  \frac{dI{dt} = \beta SI/N -\gamma I $$  <br> 
+$$  \frac{dI}{dt} = \beta SI/N -\gamma I $$  <br> 
 
 $$ \frac{dR}{dt} = \gamma I $$  <br> 
 
