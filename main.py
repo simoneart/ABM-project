@@ -11,7 +11,7 @@ start_time = time.time()
 alfa, beta = 0.2, 0.1 
 
 #total population, number of initial infected agents, number of steps of the time evolution
-Ntot, Nsteps = 400, 40
+Ntot, Nsteps = 400, 60
 NI = int(Ntot/100)
 
 #number of realizations of the evolution
@@ -88,8 +88,7 @@ if top == 'Lattice':
     plt.title(' -- Average shortest path length: %1.3f --' %ave_path_length[0] )
     plt.xlabel('Days')
     plt.legend()
-    plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
-    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops_L.pdf', format='pdf')
+    plt.suptitle("Dyanmics of the epidemy in a %s network " %top) 
     
     plt.figure(2)
     plt.hist(deg_dist[0], bins='auto', density='True', alpha=0.7, color='blue', edgecolor='black')
@@ -97,8 +96,7 @@ if top == 'Lattice':
     plt.xlabel('k')
     plt.ylabel(r'$P(k)$')
     plt.grid(True)
-    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\deg_dist_L', format='pdf')
-
+    
 else:
     plt.figure(1, (16,9))
     plt.subplot(121)
@@ -118,7 +116,6 @@ else:
     plt.xlabel('Days')
     plt.legend()
     plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
-    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops1_BA.pdf', format='pdf')
     
     plt.figure(2, (16,9))
     plt.subplot(121)
@@ -138,7 +135,6 @@ else:
     plt.xlabel('Days')
     plt.legend()
     plt.suptitle("Dyanmics of the epidemy in a %s network" %top) 
-    #plt.savefig('C:\\Users\\simon\\OneDrive\\Desktop\\ABM project \\figures\\pops2_BA.pdf', format='pdf')
     
     fig, axs = plt.subplots(2, 2)
     fig.suptitle('Degree distributions of the graphs - %s networks' %top)
@@ -153,6 +149,28 @@ else:
     
     for ax in axs.flat:
         ax.set(xlabel=r'$k$', ylabel=r'$P(k)$')
+
+#SIR model simulated using the standard set of partial differential equation
+#the b parameter is the infection rate times the average number of contacts each agent has at a given time.
+
+NN = 4 #lattice
+b = alfa * NN
+
+pde_sol = SIR_PDE(Ntot, NI, b, beta, dt = 0.1, Num_steps = 600)
+s = pde_sol[0]/Ntot
+i = pde_sol[1]/Ntot
+r = pde_sol[2]/Ntot
+xaxis = pde_sol[3]
+
+plt.figure(3, (16,9))
+plt.plot(xaxis, s, label = r'$\rho_{S}$')
+plt.plot(xaxis, i, label = r'$\rho_{I}$')
+plt.plot(xaxis, r, label = r'$\rho_{R}$')
+plt.grid()
+plt.suptitle('SIR model -- PDE approach')
+plt.title('Number of average contacts: %i' %NN)
+plt.xlabel('Time')
+plt.legend()
     
     # Hide x labels and tick labels for top plots and y ticks for right plots.
     for ax in axs.flat:
