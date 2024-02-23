@@ -52,15 +52,41 @@ In the following the relevant plots are reported.
 
 ![dd_L](https://github.com/simoneart/ABM-project/assets/95907355/522cd203-a9e8-4593-a681-830c79efb034)
 
+
 ### Erdos-Renyi Network
 
 
-The following graphs are obtained varying the probability of forming an edge in the process of building the graph ($p = 0.001 k$, $k = 5, 10, 15, 50$).
+The following plots are obtained varying the probability of forming an edge in the process of building the graph ($p = 0.001 k$, $k = 5, 10, 15, 50$).
 
 ![pops_ER_1](https://github.com/simoneart/ABM-project/assets/95907355/7fbb4cc1-1805-4d40-862d-815c97abaaf8)
 
 ![pops_ER_2](https://github.com/simoneart/ABM-project/assets/95907355/867709b2-d8f2-448c-a62c-d422f533a9ad)
 
 ![dd_ER](https://github.com/simoneart/ABM-project/assets/95907355/232e9623-f49c-4749-a6b2-574714156adc)
+
+
+### Watts-Strogatz Network
+
+
+With fixed rewiring probability ($p=0.4$), I varied the number of initial edges: $NN = 2k$, $k=1,2,5,10$.
+
+![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/a174fdc6-86b6-44f9-b659-5a0517d94322)
+
+![pops_WS_2](https://github.com/simoneart/ABM-project/assets/95907355/494afed8-2620-40cf-afc5-3a598089a4f9)
+
+
+![dd_WS](https://github.com/simoneart/ABM-project/assets/95907355/19f26004-0233-4dfc-a9d1-9a960c5366d7)
+
+### Barabasi-Albert Network
+
+The plots are obtained varying th number of edges added to each new node ($New_Edges = 2k$, $k=1,4,10,20$).
+
+![pops_BA_1](https://github.com/simoneart/ABM-project/assets/95907355/5d2018d8-8740-4164-9f8e-1f2c52df6398)
+
+![pops_BA_2](https://github.com/simoneart/ABM-project/assets/95907355/d7a12240-2937-4071-9f0c-b630ae11fd18)
+
+![dd_BA](https://github.com/simoneart/ABM-project/assets/95907355/e128418d-859a-40a4-b52c-ec02fb6e2370)
+
+### Comments
 
 
