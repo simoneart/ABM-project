@@ -33,6 +33,6 @@ I use **Python** to run the simulations and specifically the **igraph** package 
 
 ## Results 
 
-![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/b18d9de8-1e65-4fb1-b503-5e50a4ed63d7=250x250)
+![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/b18d9de8-1e65-4fb1-b503-5e50a4ed63d7=50x50)
 
 
