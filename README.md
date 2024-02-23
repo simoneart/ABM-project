@@ -49,49 +49,45 @@ In the following the relevant plots are reported.
 ### Random Mixing
 Solution of the SIR differential equations, choosing $m = 4$ number of average contancts per unit time (to compare with the lattice).
 
-![SIR_pde](https://github.com/simoneart/ABM-project/assets/95907355/fb9d1637-6b4c-4d15-b665-85a9b292a5b2)
+![SIR_pde](https://github.com/simoneart/ABM-project/assets/95907355/8312eabc-24fe-4305-ae76-970eb44dadda)
+
 
 ### 2D Square Lattice Network
 
-![pops_L](https://github.com/simoneart/ABM-project/assets/95907355/8f509bf3-0af2-47e6-92ad-4821cc5f0f04)
+![pops_L](https://github.com/simoneart/ABM-project/assets/95907355/7ed213e3-abb2-4a29-a5a9-08cc1cbf383e)
 
-![dd_L](https://github.com/simoneart/ABM-project/assets/95907355/522cd203-a9e8-4593-a681-830c79efb034)
-
+![dd_L](https://github.com/simoneart/ABM-project/assets/95907355/137afb9a-4c16-4c86-97da-e013bd2951b6)
 
 ### Erdos-Renyi Network
 
 
 The following plots are obtained varying the probability of forming an edge in the process of building the graph ($p = 0.001 k$, $k = 5, 10, 15, 50$).
 
-![pops_ER_1](https://github.com/simoneart/ABM-project/assets/95907355/7fbb4cc1-1805-4d40-862d-815c97abaaf8)
+![pops_ER_1](https://github.com/simoneart/ABM-project/assets/95907355/e233ab49-8059-4a91-b289-2702ea1a4db1)
 
-![pops_ER_2](https://github.com/simoneart/ABM-project/assets/95907355/867709b2-d8f2-448c-a62c-d422f533a9ad)
+![pops_ER_2](https://github.com/simoneart/ABM-project/assets/95907355/080c85d0-e7a5-414a-98a1-cff352af8c33)
 
-![dd_ER](https://github.com/simoneart/ABM-project/assets/95907355/232e9623-f49c-4749-a6b2-574714156adc)
-
+![dd_ER](https://github.com/simoneart/ABM-project/assets/95907355/4a94d4bf-b0a9-4d87-a47a-c21bf0cf3341)
 
 ### Watts-Strogatz Network
 
 
 With fixed rewiring probability ($p=0.4$), I varied the number of initial edges: $NN = 2k$, $k=1,2,5,10$.
 
-![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/a174fdc6-86b6-44f9-b659-5a0517d94322)
+![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/bc871c20-02a3-40d9-947f-b06c059b9482)
 
-![pops_WS_2](https://github.com/simoneart/ABM-project/assets/95907355/494afed8-2620-40cf-afc5-3a598089a4f9)
+![pops_WS_2](https://github.com/simoneart/ABM-project/assets/95907355/d37bf1c5-7c0a-4497-a95a-bd4b20068576)
 
-![dd_WS](https://github.com/simoneart/ABM-project/assets/95907355/19f26004-0233-4dfc-a9d1-9a960c5366d7)
+![dd_WS](https://github.com/simoneart/ABM-project/assets/95907355/7554980a-77cd-4bb3-85b2-8eb24b8a5c17)
 
 ### Barabasi-Albert Network
 
 The plots are obtained varying th number of edges added to each new node ($New Edges = 2k$, $k=1,4,10,20$).
 
-![pops_BA_1](https://github.com/simoneart/ABM-project/assets/95907355/5d2018d8-8740-4164-9f8e-1f2c52df6398)
+![pops_BA_1](https://github.com/simoneart/ABM-project/assets/95907355/9207b35c-b509-4ee6-91da-6f17476f2dce)
 
-![pops_BA_2](https://github.com/simoneart/ABM-project/assets/95907355/d7a12240-2937-4071-9f0c-b630ae11fd18)
+![pops_BA_2](https://github.com/simoneart/ABM-project/assets/95907355/4da73f71-cf73-40d6-aff6-5c8903587c36)
 
-![dd_BA](https://github.com/simoneart/ABM-project/assets/95907355/e128418d-859a-40a4-b52c-ec02fb6e2370)
-
+![dd_BA](https://github.com/simoneart/ABM-project/assets/95907355/dddbc3d1-5d11-4cbb-aa64-6377ab91942f)
 
 ### Comments
-
-
