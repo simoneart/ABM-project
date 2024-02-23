@@ -33,6 +33,23 @@ I use **Python** to run the simulations and specifically the **igraph** package 
 
 ## Results 
 
-![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/b18d9de8-1e65-4fb1-b503-5e50a4ed63d7 | width = 100)
+The analysis has been carried fixing the following parameters for all topologies:
+
+- $\alpha = 0.2$ infection rate;
+- $\beta = 0.1$ healing rate; 
+- $N=400$ total population;
+- $I(0) = 4$ initial infectuos agents;
+- $Days = 60$ number of time steps in the evolution;
+- $n = 10$ number of realizations of the dynamics.
+
+These choices of parameters will allow us to appreciate, despite the relatively small values of the infection rate and of the initial number of I, the crucial role played by the properties of the graph, in particulare the average shortest path length. <br>
+
+In the following the relevant plots are reported.
+
+### 2D Square Lattice Network
+
+![pops_L](https://github.com/simoneart/ABM-project/assets/95907355/8f509bf3-0af2-47e6-92ad-4821cc5f0f04)
+
+![dd_L](https://github.com/simoneart/ABM-project/assets/95907355/522cd203-a9e8-4593-a681-830c79efb034)
 
 
