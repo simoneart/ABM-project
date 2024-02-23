@@ -52,4 +52,15 @@ In the following the relevant plots are reported.
 
 ![dd_L](https://github.com/simoneart/ABM-project/assets/95907355/522cd203-a9e8-4593-a681-830c79efb034)
 
+### Erdos-Renyi Network
+
+
+The following graphs are obtained varying the probability of forming an edge in the process of building the graph ($p = 0.001 k$, $k = 5, 10, 15, 50$).
+
+![pops_ER_1](https://github.com/simoneart/ABM-project/assets/95907355/7fbb4cc1-1805-4d40-862d-815c97abaaf8)
+
+![pops_ER_2](https://github.com/simoneart/ABM-project/assets/95907355/867709b2-d8f2-448c-a62c-d422f533a9ad)
+
+![dd_ER](https://github.com/simoneart/ABM-project/assets/95907355/232e9623-f49c-4749-a6b2-574714156adc)
+
 
