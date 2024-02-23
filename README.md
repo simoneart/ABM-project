@@ -74,12 +74,11 @@ With fixed rewiring probability ($p=0.4$), I varied the number of initial edges:
 
 ![pops_WS_2](https://github.com/simoneart/ABM-project/assets/95907355/494afed8-2620-40cf-afc5-3a598089a4f9)
 
-
 ![dd_WS](https://github.com/simoneart/ABM-project/assets/95907355/19f26004-0233-4dfc-a9d1-9a960c5366d7)
 
 ### Barabasi-Albert Network
 
-The plots are obtained varying th number of edges added to each new node ($New_Edges = 2k$, $k=1,4,10,20$).
+The plots are obtained varying th number of edges added to each new node ($New Edges = 2k$, $k=1,4,10,20$).
 
 ![pops_BA_1](https://github.com/simoneart/ABM-project/assets/95907355/5d2018d8-8740-4164-9f8e-1f2c52df6398)
 
