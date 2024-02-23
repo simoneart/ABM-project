@@ -24,7 +24,7 @@ In this section I just want to give a quick overview of the topologies I am goin
 
 -**Erdos-Renyi**: A very simple regular random network, where the edges between the N nodes have the same probability of existing. The average degree $&lt k &gt$ represents well the number of neighbors of the nodes.
 
--**Watts-Strogatz**: An initial network organized in a ring where each node has a certain number of links to the closest nodes, is rewired clockwise with probability $p$ to another node chosen at random. In these kind of graphs the average degree $<k>$ represents well the number of neighbors of the nodes, but the rewiring process greatly reduces the shortest path length $&lt l &gt$, giving rise to a network with small world property (average shortest path length increase slower than any postivi power of the size of the graph, whereas for a $d-dimensional$ lattice $&lt l &gt \propto N^{\frac{1}{d}}$ ).
+-**Watts-Strogatz**: An initial network organized in a ring where each node has a certain number of links to the closest nodes, is rewired clockwise with probability $p$ to another node chosen at random. In these kind of graphs the average degree $&lt k &gt$ represents well the number of neighbors of the nodes, but the rewiring process greatly reduces the shortest path length $&lt l &gt$, giving rise to a network with small world property (average shortest path length increase slower than any postivi power of the size of the graph, whereas for a $d-dimensional$ lattice $&lt l &gt \propto N^{\frac{1}{d}}$ ).
 
 -**Barabasi-Albert**: Starting from a simple network (depends on the algorithm), new vertices are added, connecting them to a certain number of pre-existing vertices that are chosen with a probability proportional to their degree at that time. These kind of graphs show a power law degree distribution $P(k) \propto k^{-\gamma}$ with $\gamma = 3$ and the small world property.
 
@@ -33,6 +33,6 @@ I use **Python** to run the simulations and specifically the **igraph** package 
 
 ## Results 
 
-![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/b18d9de8-1e65-4fb1-b503-5e50a4ed63d7)
+![pops_WS_1](https://github.com/simoneart/ABM-project/assets/95907355/b18d9de8-1e65-4fb1-b503-5e50a4ed63d7=250x250)
 
 
