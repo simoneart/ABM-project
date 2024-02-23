@@ -46,6 +46,11 @@ These choices of parameters will allow us to appreciate, despite the relatively 
 
 In the following the relevant plots are reported.
 
+### Random Mixing
+Solution of the SIR differential equations, choosing $m = 4$ number of average contancts per unit time (to compare with the lattice).
+
+![SIR_pde](https://github.com/simoneart/ABM-project/assets/95907355/fb9d1637-6b4c-4d15-b665-85a9b292a5b2)
+
 ### 2D Square Lattice Network
 
 ![pops_L](https://github.com/simoneart/ABM-project/assets/95907355/8f509bf3-0af2-47e6-92ad-4821cc5f0f04)
@@ -85,6 +90,7 @@ The plots are obtained varying th number of edges added to each new node ($New E
 ![pops_BA_2](https://github.com/simoneart/ABM-project/assets/95907355/d7a12240-2937-4071-9f0c-b630ae11fd18)
 
 ![dd_BA](https://github.com/simoneart/ABM-project/assets/95907355/e128418d-859a-40a4-b52c-ec02fb6e2370)
+
 
 ### Comments
 
