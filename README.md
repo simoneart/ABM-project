@@ -105,4 +105,4 @@ In both the Barabasi-Albert and Watts-Strogatz networks the average path length 
 
 ## Conclusions 
 A comparison between different methods for simulationg a simple SIR model has been carried out. In particular, the differential equation approach and the implementations on different network topologies were considered, highligthinh out how the average shortest path length of the graphs is a relevant quantity in understanding the strength of the epidemic diffusion. This featrure is captured in a simplified way in the random-mixing hypothesis used for writing the SIR DEs. Finally, a quick study of the dependece of $&lt l &gt$ on the paramters used to initialize the graphs was done. <br>
-Another feature unique to epidemic models on networks, with respect to the standard approach, is the heterogeneity of the diffusion of the disease that could be studied with a entropy-like quantity as done in ['The role of the airline transportation network in the prediction and predictability of global epidemics'](https://www.pnas.org/doi/10.1073/pnas.0510525103) by Colizza et al. This is certainly a direction worth exploring, but it is not reported here for lack of time.  
+  
