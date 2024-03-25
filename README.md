@@ -101,7 +101,7 @@ For this reason, it is interesting to look at the average path length in the dif
 ![apl_WS2](https://github.com/simoneart/ABM-project/assets/95907355/7e699046-67c7-4893-80f6-176ebc6d68a0)
 ![apl_BA](https://github.com/simoneart/ABM-project/assets/95907355/e93c2d00-5cbb-47bb-b39a-0de114b749a9)
 
-In both the Barabasi-Albert and Watts-Strogatz networks the average path length decays very fast increasing the values of the parameters, while the Erdos-Renyi network shows a more rich behaviour with an increasiing trend followed by a slower decay compared to the other two topologies. 
+In both the Barabasi-Albert and Watts-Strogatz networks the average path length decays very fast increasing the values of the parameters, while the Erdos-Renyi network shows a richer behaviour with an increasing trend followed by a slower decay compared to the other two topologies. 
 
 ## Conclusions 
 A comparison between different methods for simulationg a simple SIR model has been carried out. In particular, the differential equation approach and the implementations on different network topologies were considered, highligthinh out how the average shortest path length of the graphs is a relevant quantity in understanding the strength of the epidemic diffusion. This featrure is captured in a simplified way in the random-mixing hypothesis used for writing the SIR DEs. Finally, a quick study of the dependece of $&lt l &gt$ on the paramters used to initialize the graphs was done. <br>
