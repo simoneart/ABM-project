@@ -1,7 +1,7 @@
 # Implementation of the SIR epidemic model on networks <br>
 
 ## Goal
-The goal of the project is to compare epidemic spreading on different network topologies and to study the dependence of the populations dynamics (i.e. the densities of the S, I and R agents over time) on the choice of parameters. <br> 
+The goal of the project is to compare epidemic spreading on different network topologies and to study the dependence of the populations dynamics (i.e. the densities of the $S$, $I$ and $R$ agents over time) on the choice of parameters. <br> 
 
 ## Short introduction
 
